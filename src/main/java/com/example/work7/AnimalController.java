@@ -2,19 +2,25 @@ package com.example.work7;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
 
 @RestController
 public class AnimalController {
+    public Animal animal = new Animal("cat", 25);
+
     @GetMapping("/animals")
-    public List<String> getAnimals(@RequestParam(name = "name", required = false, defaultValue = "") String name
-            , @RequestParam(name = "weight", required = false, defaultValue = "") String weight) {
-        return List.of(name, weight);
+    public String getAnimals() {
+        return animal.toString();
     }
 
     @PostMapping("/animals")
