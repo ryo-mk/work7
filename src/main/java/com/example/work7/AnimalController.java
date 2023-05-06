@@ -19,8 +19,8 @@ public class AnimalController {
     public Animal animal = new Animal("cat", 25);
 
     @GetMapping("/animals")
-    public String getAnimals() {
-        return animal.toString();
+    public Animal getAnimals() {
+        return animal;
     }
 
     @PostMapping("/animals")
